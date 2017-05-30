@@ -1,7 +1,7 @@
 {
   "name": "learn-redux",
   "version": "1.0.0",
-  "description": ":) ",
+  "description": "My first Redux app!",
   "scripts": {
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
@@ -12,11 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wesbos/Learn-Redux.git"
+    "url": "https://github.com/kutyel/learn-redux.git"
   },
-  "author": "Wes Bos",
+  "author": "kutyel <flaviocorpa@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/wesbos/Learn-Redux",
+  "homepage": "https://github.com/kutyel/learn-redux",
   "dependencies": {
     "babel-core": "^6.7.7",
     "babel-eslint": "^6.0.4",
