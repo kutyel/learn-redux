@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import CSSTransitionGroup from 'react-addons-css-transition-group'
 
-const Photo = ({ post: { code, caption, likes, display_src: src }, comments }) => (
+const Photo = ({ post: { code, caption, likes, display_src: src }, comments, i, increment }) => (
   <figure className='grid-figure'>
     <div className='grid-photo-wrap'>
       <Link to={`/view/${code}`}>
@@ -18,7 +18,7 @@ const Photo = ({ post: { code, caption, likes, display_src: src }, comments }) =
     <figcaption>
       <p>{caption}</p>
       <div className='control-buttons'>
-        <button className='likes'>&hearts; {likes}</button>
+        <button onClick={() => increment(i)} className='likes'>&hearts; {likes}</button>
         <Link className='button' to={`/view/${code}`}>
           <span className='comment-count'>
             <span className='speech-bubble' />
@@ -27,7 +27,7 @@ const Photo = ({ post: { code, caption, likes, display_src: src }, comments }) =
         </Link>
       </div>
     </figcaption>
-  </figure>
+  </figure >
 )
 
 export default Photo
