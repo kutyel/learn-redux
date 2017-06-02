@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 const Main = props => (
   <div>
     <h1>
-      <Link to='/'>Reduxstagram</Link>
+      <Link to='/'>Instagram</Link>
     </h1>
     {cloneElement(props.children, props)}
   </div>
