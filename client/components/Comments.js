@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 
 class Comments extends Component {
-
-  renderComment({ user, text }, i) {
+  renderComment ({ user, text }, i) {
     return (
       <div className='comment' key={i}>
         <p>
@@ -16,7 +15,7 @@ class Comments extends Component {
     )
   }
 
-  submit(e) {
+  submit (e) {
     e.preventDefault()
     const { postId } = this.props.params
     const author = this.refs.author.value
@@ -25,7 +24,7 @@ class Comments extends Component {
     this.refs.commentForm.reset()
   }
 
-  render() {
+  render () {
     return (
       <div className='comments'>
         {this.props.postComments.map(this.renderComment.bind(this))}

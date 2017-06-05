@@ -1,15 +1,14 @@
-import { createStore, compose } from 'redux'
+import thunk from 'redux-thunk'
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
+import { createStore, compose, applyMiddleware } from 'redux'
 
 import reducer from './reducers/index'
 
-import posts from './data/posts'
-import comments from './data/comments'
-
-const defaultState = { posts, comments }
+const defaultState = { posts: [], comments: [] }
 
 const enhancers = compose(
+  applyMiddleware(thunk),
   window.devToolsExtension ? window.devToolsExtension() : f => f
 )
 
