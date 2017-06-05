@@ -1,11 +1,19 @@
+import * as types from './actionTypes'
+
 export const increment = index =>
-  ({ type: 'INCREMENT_LIKES', index })
+  ({ type: types.INCREMENT_LIKES, index })
 
 export const decrement = index =>
-  ({ type: 'DECREMENT_LIKES', index })
+  ({ type: types.DECREMENT_LIKES, index })
 
 export const addComment = (postId, author, comment) =>
-  ({ type: 'ADD_COMMENT', postId, author, comment })
+  ({ type: types.ADD_COMMENT, postId, author, comment })
 
 export const removeComment = (postId, index) =>
-  ({ type: 'REMOVE_COMMENT', index, postId })
+  ({ type: types.REMOVE_COMMENT, index, postId })
+
+export const loadPostsSuccess = posts =>
+  ({ type: types.LOAD_POSTS_SUCCESS, posts })
+
+export const loadCommentsSuccess = posts =>
+  ({ type: types.LOAD_COMMENTS_SUCCESS, posts })

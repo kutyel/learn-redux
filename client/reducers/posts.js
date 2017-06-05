@@ -1,17 +1,21 @@
-const posts = (state = [], { type, index }) => {
+import * as types from '../actions/actionTypes'
+
+const posts = (state = [], { type, index, posts }) => {
   switch (type) {
-    case 'INCREMENT_LIKES':
+    case types.INCREMENT_LIKES:
       return [
         ...state.slice(0, index),
         { ...state[index], likes: state[index].likes + 1, liked: true },
         ...state.slice(index + 1)
       ]
-    case 'DECREMENT_LIKES':
+    case types.DECREMENT_LIKES:
       return [
         ...state.slice(0, index),
         { ...state[index], likes: state[index].likes - 1, liked: false },
         ...state.slice(index + 1)
       ]
+    case types.LOAD_POSTS_SUCCESS:
+      return posts
     default:
       return state
   }

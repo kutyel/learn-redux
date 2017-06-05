@@ -11,6 +11,10 @@ import App from './components/App'
 import Single from './components/Single'
 import PhotoGrid from './components/PhotoGrid'
 
+import { loadPosts } from './actions/fetchActions'
+
+store.dispatch(loadPosts('theschrodingercat'))
+
 const router = (
   <Provider store={store}>
     <Router history={history}>
