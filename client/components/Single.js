@@ -5,7 +5,7 @@ import Comments from './Comments'
 
 const Single = props => {
   const { postId } = props.params
-  const index = props.posts.findIndex(p => p.code === postId)
+  const index = props.posts.findIndex(p => p.id === postId)
   const post = props.posts[index]
   const comments = props.comments[postId] || []
 

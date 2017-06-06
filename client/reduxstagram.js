@@ -13,7 +13,7 @@ import PhotoGrid from './components/PhotoGrid'
 
 import { loadPosts } from './actions/fetchActions'
 
-store.dispatch(loadPosts('theschrodingercat'))
+store.dispatch(loadPosts())
 
 const router = (
   <Provider store={store}>
