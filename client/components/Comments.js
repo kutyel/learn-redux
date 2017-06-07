@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
+import replace from 'react-string-replace'
+
+import Mention from './Mention'
 
 class Comments extends Component {
-  renderComment ({ user, text }, i) {
+  renderComment({ from: { full_name }, text }, i) {
     return (
       <div className='comment' key={i}>
         <p>
-          <strong>{user}</strong>
-          {text}
+          <strong>{full_name}</strong>
+          {replace(text, /@(\w+)/g, (match, i) => <Mention key={i} user={match} />)}
           <button
             onClick={() => this.props.removeComment(this.props.params.postId, i)}
             className='remove-comment'>&times;</button>
@@ -15,7 +18,7 @@ class Comments extends Component {
     )
   }
 
-  submit (e) {
+  submit(e) {
     e.preventDefault()
     const { postId } = this.props.params
     const author = this.refs.author.value
@@ -24,7 +27,7 @@ class Comments extends Component {
     this.refs.commentForm.reset()
   }
 
-  render () {
+  render() {
     return (
       <div className='comments'>
         {this.props.postComments.map(this.renderComment.bind(this))}

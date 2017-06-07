@@ -15,5 +15,5 @@ export const removeComment = (postId, index) =>
 export const loadPostsSuccess = posts =>
   ({ type: types.LOAD_POSTS_SUCCESS, posts })
 
-export const loadCommentsSuccess = posts =>
-  ({ type: types.LOAD_COMMENTS_SUCCESS, posts })
+export const loadCommentsSuccess = (postId, comments) =>
+  ({ type: types.LOAD_COMMENTS_SUCCESS, postId, comments })

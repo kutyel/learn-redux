@@ -16,5 +16,5 @@ export const loadPosts = userId => dispatch =>
 export const loadComments = mediaId => dispatch =>
   fetchComments(mediaId)
     .then(res => res.json())
-    .then(({ data }) => dispatch(loadCommentsSuccess(data)))
+    .then(({ data }) => dispatch(loadCommentsSuccess(mediaId, data)))
     .catch(err => console.error(err))
