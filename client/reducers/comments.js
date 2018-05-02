@@ -1,4 +1,4 @@
-import * as types from '../actions/actionTypes'
+import * as types from '../actions/types'
 
 const comments = (state = [], action) => {
   if (action.postId) {
@@ -10,7 +10,10 @@ const comments = (state = [], action) => {
   return state
 }
 
-const postComments = (state = [], { type, index, comments, author: full_name, comment: text }) => {
+const postComments = (
+  state = [],
+  { type, index, comments, author: full_name, comment: text }
+) => {
   switch (type) {
     case types.ADD_COMMENT:
       return [...state, { from: { full_name }, text }]
