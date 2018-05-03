@@ -1,30 +1,32 @@
-const path = require('path')
-const webpack = require('webpack')
+const { join } = require('path')
+const Dotenv = require('dotenv-webpack')
+const { HotModuleReplacementPlugin, NoErrorsPlugin } = require('webpack')
 
 module.exports = {
   devtool: 'source-map',
   entry: ['webpack-hot-middleware/client', './client'],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/',
+    publicPath: '/static/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new HotModuleReplacementPlugin(),
+    new NoErrorsPlugin(),
+    new Dotenv()
   ],
   module: {
     loaders: [
       {
         test: /\.js$/,
         loaders: ['babel'],
-        include: path.join(__dirname, 'client'),
+        include: join(__dirname, 'client')
       },
       {
         test: /\.css$/,
-        include: path.join(__dirname, 'client'),
-        loader: 'style-loader!css-loader!',
-      },
-    ],
-  },
+        include: join(__dirname, 'client'),
+        loader: 'style-loader!css-loader!'
+      }
+    ]
+  }
 }
