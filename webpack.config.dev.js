@@ -1,33 +1,30 @@
-var path = require('path')
-var webpack = require('webpack')
+const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   devtool: 'source-map',
-  entry: [
-    'webpack-hot-middleware/client',
-    './client/reduxstagram'
-  ],
+  entry: ['webpack-hot-middleware/client', './client'],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/static/',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
   ],
   module: {
     loaders: [
       {
         test: /\.js$/,
         loaders: ['babel'],
-        include: path.join(__dirname, 'client')
+        include: path.join(__dirname, 'client'),
       },
       {
         test: /\.css$/,
         include: path.join(__dirname, 'client'),
-        loader: 'style-loader!css-loader!'
-      }
-    ]
-  }
+        loader: 'style-loader!css-loader!',
+      },
+    ],
+  },
 }
